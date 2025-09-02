@@ -21,7 +21,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-LIQUIBASE_LICENSE_KEY="<LIQUIBASE_PRO_LICENSE_HERE>"
+# LIQUIBASE_LICENSE_KEY="<LIQUIBASE_PRO_LICENSE_HERE>"
 LIQUIBASE_PATH="../liquibase-pro-4.33.0/liquibase"
 LIQUIBASE_LLU_PATH="../liquibase-license-utility-0.0.1"
 FLOW_FILE="liquibase.flowfile.yaml"
