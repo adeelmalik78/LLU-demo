@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<databaseChangeLog  
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"  
+  xmlns:pro="http://www.liquibase.org/xml/ns/pro"  
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro
+    http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd">
+
+  <changeSet author="nvoxland" id="tag-release-21">
+    <tagDatabase  tag="release-21"/>  
+  </changeSet>
+
+  <changeSet author="nvoxland" id="DB-1011" >
+    <sqlFile path="main/100_ddl/01_sales.sql"/>
+    <rollback>
+        <sqlFile path="main/100_ddl/01_sales-rollback.sql"/>
+    </rollback>
+  </changeSet>
+
+  <changeSet author="nvoxland" id="DB-1012">
+    <sqlFile path="main/100_ddl/02_employee.sql"/>
+    <rollback>
+        <sqlFile path="main/100_ddl/02_employee-rollback.sql"/>
+      </rollback>
+  </changeSet>
+
+  <changeSet author="nvoxland" id="DB-1013">
+    <sqlFile path="main/100_ddl/03_contractors.sql"/>
+    <rollback>
+        <sqlFile path="main/100_ddl/03_contractors-rollback.sql"/>
+      </rollback>
+  </changeSet>
+
+<!-- 
+  <include file=main/100_ddl/03_contractors.sql>
+  <include file=main/100_ddl/01_sales.sql>
+  <includeAll path=main> -->
+
+<include file="main/700_dml/Q4-2022_employees2.sql" />
+
+</databaseChangeLog>
+
