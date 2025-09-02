@@ -1,5 +1,5 @@
 .claude
+liquibase.properties
 readme.txt
 run-liquibase.sh
 setup-llu.sh
-liquibase.properties
