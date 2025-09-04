@@ -98,6 +98,17 @@ wait_for_postgres() {
     return 1
 }
 
+# Function to check if web server is running
+check_web_server() {
+    local port=$1
+    
+    if curl -s --max-time 5 --connect-timeout 3 "http://localhost:${port}" >/dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # Function to run Liquibase flow
 run_liquibase_flow() {
     local env_name=$1
@@ -133,6 +144,15 @@ for container in $containers_to_cleanup; do
         print_step "Removed $container"
     fi
 done
+
+# Check if LLU is running
+print_header "Checking if Liquibase License Utility is running"
+
+# Check if web server is running before opening browser
+if ! check_web_server "${SERVER_PORT}"; then
+    print_error "Liquibase Licence Utility not running on localhost:${SERVER_PORT}. Please start LLU and try running this script again"
+    exit 1
+fi
 
 # Start PostgreSQL databases
 print_header "Starting PostgreSQL Databases"
@@ -178,6 +198,7 @@ sleep 1
 
 # Open LLU report in browser (always)
 print_header "Opening LLU Usage Report in Browser"
+
 echo -e "${YELLOW}Opening browser to view LLU report at: ${BLUE}http://localhost:8080/v1/report${NC}"
 
 # Detect OS and open browser appropriately
