@@ -2,6 +2,14 @@
 
 This repository demonstrates how to track Liquibase Pro license usage across multiple database environments using the Liquibase License Usage (LLU) server and Docker containers.
 
+Once the LLU is running, the report would look like this:
+
+[![Liquibase Pro License Tracking Report](report/report.png)](report/Liquibase%20Pro%20License%20Tracking%20Report.mhtml)
+
+*Click the image above to view the detailed MHTML report file*
+
+
+
 ## Prerequisites
 
 ### Required Software
