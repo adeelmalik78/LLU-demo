@@ -14,7 +14,7 @@ Once the LLU is running, the report would look like this:
 ### Required Software
 <!-- - Docker installed and running -->
 - Liquibase Pro 4.33.0+ installed. Used as `LIQUIBASE_PATH="../liquibase-pro-4.33.0/liquibase"`
-- Liquibase License Utilities installed. Used as `LIQUIBASE_LLU_PATH="../liquibase-license-utility-0.0.1"`
+- Liquibase License Utilities installed. Used in `start-llu.sh`
 - Valid Liquibase Pro license key. Used as `LIQUIBASE_LICENSE_KEY="ABwwGgQUWlMd5..."`
 - Bash shell environment
 
@@ -57,6 +57,14 @@ The demo showcases:
 ```
 
 ## Quick Start
+
+### Start Liquibase License Utility
+
+The script checks the Java version if it is set to Java 17 or higher. Then starts the LLU:
+
+```bash
+./start-llu.sh
+```
 
 ### Automated Execution (Recommended)
 
@@ -105,11 +113,14 @@ http://localhost:8080/v1/report
 
 ```
 LLU-UAT/
-├── README.md                    # This documentation
+├── README.md                   # This documentation
+├── report
+│   ├── Liquibase Pro License Tracking Report.html
+│   └── report.png
 ├── run.sh                      # Complete automation script with --llu option
-├── setup-llu.sh               # LLU server setup script
-├── liquibase.flowfile.yaml    # Liquibase flow configuration
-├── liquibase.properties       # Database connection properties
+├── start-llu.sh                # LLU server setup script
+├── liquibase.flowfile.yaml     # Liquibase flow configuration
+├── liquibase.properties        # Database connection properties
 ├── changelog.xml               # Database change log
 ├── main/
 │   ├── 100_ddl/               # DDL scripts
