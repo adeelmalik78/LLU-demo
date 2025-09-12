@@ -22,10 +22,10 @@ NC='\033[0m' # No Color
 
 # Configuration
 # LIQUIBASE_LICENSE_KEY="<LIQUIBASE_PRO_LICENSE_HERE>"
-LIQUIBASE_PATH="../liquibase-pro-4.33.0/liquibase"
+LIQUIBASE_PATH="../liquibase-secure-5.0.0-rc1/liquibase"
 FLOW_FILE="liquibase.flowfile.yaml"
 PROPERTIES_FILE="liquibase.properties"
-export SERVER_PORT="8080"
+export SERVER_PORT="8123"
 
 # Database configurations
 DATABASES[dev]=5432
@@ -198,26 +198,26 @@ sleep 1
 # Open LLU report in browser (always)
 print_header "Opening LLU Usage Report in Browser"
 
-echo -e "${YELLOW}Opening browser to view LLU report at: ${BLUE}http://localhost:8080/v1/report${NC}"
+echo -e "${YELLOW}Opening browser to view LLU report at: ${BLUE}http://localhost:${SERVER_PORT}/v1/report${NC}"
 
 # Detect OS and open browser appropriately
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
-    if open "http://localhost:8080/v1/report" 2>/dev/null; then
+    if open "http://localhost:${SERVER_PORT}/v1/report" 2>/dev/null; then
         print_step "Browser opened successfully (macOS)"
     else
         print_warning "Failed to open browser automatically"
     fi
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
-    if xdg-open "http://localhost:8080/v1/report" 2>/dev/null; then
+    if xdg-open "http://localhost:${SERVER_PORT}/v1/report" 2>/dev/null; then
         print_step "Browser opened successfully (Linux)"
     else
         print_warning "Failed to open browser automatically"
     fi
 elif [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
     # Windows
-    if start "http://localhost:8080/v1/report" 2>/dev/null; then
+    if start "http://localhost:${SERVER_PORT}/v1/report" 2>/dev/null; then
         print_step "Browser opened successfully (Windows)"
     else
         print_warning "Failed to open browser automatically"
@@ -226,7 +226,7 @@ else
     print_warning "Unknown OS type, cannot open browser automatically"
 fi
 
-echo -e "${BLUE}If the browser didn't open automatically, please visit: ${YELLOW}http://localhost:8080/v1/report${NC}"
+echo -e "${BLUE}If the browser didn't open automatically, please visit: ${YELLOW}http://localhost:${SERVER_PORT}/v1/report${NC}"
 print_step "LLU report is available in your browser"
        
 
