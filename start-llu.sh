@@ -22,7 +22,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 # LIQUIBASE_LICENSE_KEY="<LIQUIBASE_PRO_LICENSE_HERE>"
-LIQUIBASE_LLU_PATH="../liquibase-secure-5.0.0-rc1/dist/liquibase-license-tracking"
+LIQUIBASE_LLU_PATH="../liquibase-secure-5.0.0/dist/liquibase-license-tracking"
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk@21/21.0.6
 export SERVER_PORT=8123
 export POSTGRES_PORT=5430
