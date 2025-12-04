@@ -5,5 +5,3 @@ create table sales (
     last_name varchar (50)
 );
 
--- GRANT ALL PRIVILEGES ON sales TO postgres;
--- rollback drop table sales
